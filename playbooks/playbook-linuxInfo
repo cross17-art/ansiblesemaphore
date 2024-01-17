@@ -1,0 +1,20 @@
+---
+- name: Linux Version
+  hosts: testLinux
+  remote_user: ansibleControl
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Get linux information
+      shell: cat /etc/os-release
+      register: command_result
+
+    - name: Display result
+      debug:
+        msg: "result {{ command_result }}"
+
+
+
+
+
