@@ -1,0 +1,13 @@
+---
+- name: Test
+  hosts: ovh_hv
+  vars:
+    conf_path: C:\Program Files (x86)\NTP\etc\ntp.conf
+
+  tasks:
+    - name: Check that ntp.conf exists
+      win_stat:
+        path: '{{ conf_path }}'
+      register: stat_result
+
+
